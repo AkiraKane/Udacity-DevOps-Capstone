@@ -16,10 +16,10 @@ pipeline {
                   sh 'tidy -q -e *.html'
               }
          }
-        //  stage('Security Scan') {
-        //       steps { 
-        //          aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1', onDisallowed: 'ignore'
-        //       }
-        //  } 
+         stage('Security Scan') {
+              steps { 
+                 aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1', onDisallowed: 'fail'
+              }
+         } 
      }
 }
