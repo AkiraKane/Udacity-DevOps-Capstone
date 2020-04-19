@@ -20,7 +20,7 @@ pipeline {
          stage('Image Build') {
             steps {
                 script {
-                    def newImage = docker.build("${imageName}")
+                    newImage = docker.build("${imageName}")
                 } 
             }
         }
