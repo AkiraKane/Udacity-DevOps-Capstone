@@ -30,7 +30,7 @@ pipeline {
         }
          stage('Security Scan') {
               steps { 
-                 aquaMicroscanner imageName: "${image_name}", notCompliesCmd: 'exit 1', onDisallowed: 'fail', outputFormat: 'html'
+                 aquaMicroscanner imageName: "${image_name}", notCompliesCmd: 'exit 1', onDisallowed: 'ignore', outputFormat: 'html'
               }
          } 
 
@@ -47,7 +47,7 @@ pipeline {
                 }
             }
         }
-        
+
           stage('Push Image') {
             when { branch "master" }
             steps {
