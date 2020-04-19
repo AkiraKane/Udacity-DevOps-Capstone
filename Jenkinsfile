@@ -8,11 +8,7 @@ pipeline {
      stages {
          stage('Build') {
              steps {
-                 sh 'echo "Hello World"'
-                 sh '''
-                     echo "Multiline shell steps works too"
-                     ls -lah
-                 '''
+                 sh 'echo "Hello There!"'
              }
          }
          stage('Lint HTML') {
@@ -38,7 +34,7 @@ pipeline {
             steps {
                 script {
                     def port = 8080
-                    apiImage.withRun("-p ${port}:80") {
+                    new_image.withRun("-p ${port}:80") {
                         sleep 10
                         sh """
                         curl -v http://localhost:${port}/
