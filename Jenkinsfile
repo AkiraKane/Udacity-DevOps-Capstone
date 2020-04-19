@@ -3,7 +3,7 @@ pipeline {
      agent any
 
     environment {
-        image_name = "vampire2008/capstone:latest"
+        imageName = "vampire2008/capstone:latest"
     }
      stages {
          stage('Build') {
@@ -20,13 +20,13 @@ pipeline {
          stage('Image Build') {
             steps {
                 script {
-                    def new_image = docker.build("${image_name}")
+                    def newImage = docker.build("${imageName}")
                 } 
             }
         }
          stage('Security Scan') {
               steps { 
-                 aquaMicroscanner imageName: "${image_name}", notCompliesCmd: 'exit 1', onDisallowed: 'ignore', outputFormat: 'html'
+                 aquaMicroscanner imageName: "${imageName}", notCompliesCmd: 'exit 1', onDisallowed: 'ignore', outputFormat: 'html'
               }
          } 
 
@@ -34,8 +34,8 @@ pipeline {
             steps {
                 script {
                     def port = 8080
-                    new_image.withRun("-p ${port}:80") {
-                        sleep 10
+                    newImage.withRun("-p ${port}:80") {
+                        sleep 60
                         sh """
                         curl -v http://localhost:${port}/
                         """
@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com/', DockerHub) {
-                        new_image.push()
+                        newImage.push()
                     }
                 }
             }
