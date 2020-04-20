@@ -68,7 +68,7 @@ I was using the eksctl tool to leverage to Cloudformation to create a EKS cluste
 ![stack](images/Cloudformation_K8s.png)
 
 
-![instances](images/K8s_EC2.png)
+![instance](images/EC2.png)
 
 After the cluster is ready, update the kube config file, and apply for the deployment and services yaml files.
 
