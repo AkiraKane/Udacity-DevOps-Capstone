@@ -39,6 +39,8 @@ pipeline {
                         sleep 10
                         sh """
                         curl -v http://localhost:${port}/
+
+                        echo "it is working!"
                         """
                     }
                 }
