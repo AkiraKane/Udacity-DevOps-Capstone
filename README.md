@@ -18,7 +18,7 @@ Below are the stages the application has to pass that lead to a successful deplo
 
 if there is anything voliates with the linting, the pipeline will be broken:
 
-![failed build](images/lint-failed .png)
+![failed build](images/lint-failed.png)
 
 
 ## The Application
@@ -60,12 +60,13 @@ As part of the docker build, a security scan is performed on the image just gene
 A simple integration test is performed against a running container to verify the dockerized application can run and respond to simple requests.
 The application is very simple so this validation is performed with a few `curl` commands
 
-### Application deployment
+# Application deployment
 
 The webapp is deployed into a Kubernetes cluster hosted with Amazon EKS. The deployment is performed in a **Blue-Green** fashion. 
 I was using the eksctl tool to leverage to Cloudformation to create a EKS cluster, the command is located at `k8s-cluster.sh` file. The following snapshots indicates both the cloudformation stacks and worker nodes are successfully built.
 
 ![stack](images/Cloudformation_K8s.png)
+
 
 ![instances](images/K8s_EC2.png)
 
@@ -75,9 +76,12 @@ After the cluster is ready, update the kube config file, and apply for the deplo
 
 Since the first time running Jenkins pipeline to deploy blue webapp, then nevigate to the `localhost:30921`, here what I got:
 
+
 ![blue](images/blue-page.png)
 
+
 After update the html with the new image, then trigger the Jenkins pipeline to run, we will get the green webapp by typing  `localhost:31782`
+
 
 ![green](images/green-page.png)
 
