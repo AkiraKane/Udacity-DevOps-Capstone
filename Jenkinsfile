@@ -33,10 +33,10 @@ pipeline {
          stage('Integration testing') {
             steps {
                 script {
-                    def port = 8080
+                    def port = 9090
                     sh 'docker ps'
                     newImage.withRun("-p ${port}:80") {
-                        sleep 60
+                        sleep 10
                         sh """
                         curl -v http://localhost:${port}/
                         """
