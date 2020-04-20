@@ -46,11 +46,10 @@ pipeline {
         }
 
           stage('Push Image') {
-            when { branch "master" }
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com/', DockerHub) {
-                        newImage.push()
+                        docker.build("${imageName}").push()
                     }
                 }
             }
