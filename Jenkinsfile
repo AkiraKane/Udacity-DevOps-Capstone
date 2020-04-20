@@ -34,6 +34,7 @@ pipeline {
             steps {
                 script {
                     def port = 8080
+                    sh 'docker ps'
                     newImage.withRun("-p ${port}:80") {
                         sleep 60
                         sh """
