@@ -3,7 +3,7 @@ kind: ClusterConfig
 
 metadata:
   name: capstone
-  region: us-east-1
+  region: us-west-2
 
 nodeGroups:
   - name: blue
