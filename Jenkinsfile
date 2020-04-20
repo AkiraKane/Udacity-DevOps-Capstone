@@ -35,7 +35,7 @@ pipeline {
                 script {
                     def port = 8080
                     newImage.withRun("-p ${port}:80") {
-                        sleep 60
+                        sleep 10
                         sh """
                         curl -v http://localhost:${port}/
                         """
