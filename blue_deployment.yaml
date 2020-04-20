@@ -23,7 +23,6 @@ metadata:
   name: blue
   namespace: default
 spec:
-  type: LoadBalancer
   selector:
     app: web
   ports:
