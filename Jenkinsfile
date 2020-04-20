@@ -34,9 +34,8 @@ pipeline {
             steps {
                 script {
                     def port = 8080
-                    sh 'docker stop "$(docker ps -q)"'
                     newImage.withRun("-p ${port}:80") {
-                        sleep 10
+                        sleep 60
                         sh """
                         curl -v http://localhost:${port}/
                         """
