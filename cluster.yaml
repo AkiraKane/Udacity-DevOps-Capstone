@@ -7,8 +7,9 @@ metadata:
 
 nodeGroups:
   - name: blue
-    instanceType: m4.large
-    desiredCapacity: 10
+    instanceType: m5.large
+    desiredCapacity: 3
   - name: green
-    instanceType: m4.large
-    desiredCapacity: 10
+    instanceType: m5.large
+    desiredCapacity: 3
+
