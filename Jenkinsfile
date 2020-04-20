@@ -33,7 +33,7 @@ pipeline {
          stage('Integration testing') {
             steps {
                 script {
-                    def port = 9090
+                    def port = 7070
                     sh 'docker ps'
                     newImage.withRun("-p ${port}:80") {
                         sleep 10
