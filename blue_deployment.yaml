@@ -29,6 +29,5 @@ spec:
   selector:
     app: web
   ports:
-  - port: 8080
-    targetPort: 80
-    nodePort: 32000
+  - port: 80
+    targetPort: 8080
