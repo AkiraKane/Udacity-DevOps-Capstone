@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com/', DockerHub) {
-                        docker.build("${imageName}").push()
+                        newImage.push()
                     }
                 }
             }
